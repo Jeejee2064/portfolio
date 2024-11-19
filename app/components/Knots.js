@@ -17,7 +17,7 @@ const Knots = () => {
 
   const messages = [
     "Make a loop, note the working end goes over the standing part.",
-    "Twist the loop on itself to make an '8' (pay attention to the direction).",
+    "Twist the loop on itself to make an \'8\' (pay attention to the direction).",
     "Pass the upper part of the loop over the lower part, the working end, and the standing part.",
     "Pass the loop through the central opening from underneath.",
     "Tighten while holding the loop and pulling on both ends."

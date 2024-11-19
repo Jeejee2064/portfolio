@@ -156,7 +156,7 @@ const MarineKnots = () => {
             <div className="p-6 rounded-lg text-[#283061] text-lg font-medium">
               <p>
 
-                "Very good app for learning or getting back into marine knots. Simple and effective, it has everything you need. Really handy, even for beginners! To be used without moderation."
+                &quot;Very good app for learning or getting back into marine knots. Simple and effective, it has everything you need. Really handy, even for beginners! To be used without moderation.&quot;
 
               </p>
               <p className="mt-4 text-gray-400 text-sm font-semibold">- Gil Lou Moustache</p>
@@ -167,7 +167,7 @@ const MarineKnots = () => {
 
               <p>
 
-                "An essential app for sailors of any level. Smooth and fast app, very easy to understand."
+                &quot;An essential app for sailors of any level. Smooth and fast app, very easy to understand.&quot;
 
 
 
