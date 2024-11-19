@@ -17,7 +17,7 @@ const Knots = () => {
 
   const messages = [
     "Make a loop, note the working end goes over the standing part.",
-    "Twist the loop on itself to make an \'8\' (pay attention to the direction).",
+    "Twist the loop on itself to make an 8 (pay attention to the direction).",
     "Pass the upper part of the loop over the lower part, the working end, and the standing part.",
     "Pass the loop through the central opening from underneath.",
     "Tighten while holding the loop and pulling on both ends."
@@ -199,9 +199,8 @@ const Knots = () => {
               className="bg-[#283061] p-8 rounded-lg w-full h-full overflow-y-auto"
             >
               <div className="max-w-6xl mx-auto">
-                <h2 className="text-2xl text-center font-bold text-white mb-8">
-                  Alpine Butterfly
-                </h2>
+           <span className="text-xl text-bold mb-2 text-white">Alpine Butterfly</span>
+
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="flex flex-col space-y-2">
