@@ -42,24 +42,24 @@ export default function Hero() {
 
         {/* Text content that appears after background animation */}
         <div className="text-center px-6 z-[200] w-screen">
-          <motion.h1
-            variants={textVariants}
-            initial="hidden"
-            animate={bgAnimationComplete ? "visible" : "hidden"}
-            className="text-white z-100 text-5xl md:text-6xl font-extrabold mb-4"
-          >
-            Hi! I'm Jérôme
-          </motion.h1>
-
           <motion.p
             variants={textVariants}
             initial="hidden"
             animate={bgAnimationComplete ? "visible" : "hidden"}
+            className="text-white z-100 text-xl z-100 md:text-2xl font-extrabold mb-4"
+          >
+           Hi! I&apos;m Jérôme
+          </motion.p>
+
+          <motion.h1
+            variants={textVariants}
+            initial="hidden"
+            animate={bgAnimationComplete ? "visible" : "hidden"}
             transition={{ delay: 0.2 }}
-            className="text-white text-xl z-100 md:text-2xl font-light"
+            className="text-white text-5xl md:text-6xl font-light"
           >
             I design, develop, and publish digital products
-          </motion.p>
+          </motion.h1>
           <motion.p
             variants={textVariants}
             initial="hidden"
