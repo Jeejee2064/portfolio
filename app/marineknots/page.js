@@ -1,6 +1,5 @@
 'use client'
 import Knots from '../components/Knots';
-import ScrollShadow from '../components/ScrollShadow';
 import { Pacifico } from "next/font/google";
 import { motion, useTransform, useScroll } from 'framer-motion';
 import React, { useRef, useEffect } from 'react';
@@ -22,7 +21,13 @@ const MarineKnots = () => {
 
 
   const screen1 = useRef(null)
-
+  useEffect(() => {
+    // Check if running on the client side before accessing the document object
+    if (typeof window !== 'undefined') {
+      // Access the document object
+      console.log(document);
+    }
+  }, []);
   const { scrollYProgress } = useScroll({
     target: screen1,
     offset: ["start end", "end end"]
