@@ -9,6 +9,8 @@ import MK from '../lottie/mk.json';
 import WK from '../lottie/wk.json'; 
 import Sicon from '../lottie/Sicon.json'; 
 import Motionicon from '../lottie/Motionicon.json'; 
+import BGSVGShadow2 from './BGSVGShadow2';
+import OverlappingScreenshots from './OverlappingScreenshots';
 
 const WorkSection = () => {
   const sectionRef = useRef(null);
@@ -96,7 +98,9 @@ useEffect(() => {
 
   return (
     <motion.div style={{ backgroundColor }}>
-      <div ref={sectionRef} className="w-full h-screen flex justify-center items-center">
+      <div ref={sectionRef} className="w-full h-[50vh] md:h-screen flex justify-center items-center">
+                      <BGSVGShadow2 />
+
         <Lottie
           lottieRef={lottieRef}
           animationData={animationData}
@@ -107,31 +111,69 @@ useEffect(() => {
         />
       </div>
 
-      <div className="max-w-7xl  mx-auto py-16 px-4 md:px-8 md:px-12">
-        <div className="space-y-24">
+      <div className="   mx-auto py-16 md:px-8 md:px-12">
+        <div className="space-y-24 ">
           {/* WildKnot Project */}
           <motion.div 
-            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16"
+            className="flex z-1000 flex-col md:flex-row items-center justify-center gap-8 md:gap-16"
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.5 }}
             viewport={{ amount: 0.3 }}
           >
-            <div className="w-full md:w-1/2 lg:w-1/3  ">
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <div className="absolute top-2 left-2 text-white text-xs font-semibold z-20 py-1 px-2 rounded bg-blue-500">
-                  App
-                </div>
-                <img src="iconbig.png" alt="WildKnot" className="w-full h-auto rounded-lg  aspect-[3/3] object-cover" />
-              </div>
-            </div>
+       <div className="w-full md:w-1/2 lg:w-1/3 lg:mr-16">
+  <div className="relative rounded-lg pt-8 overflow-hidden md:overflow-visible h-[75vh] md:h-screen w-screen md:w-auto ">
+    {/* Label */}
+    <div className="absolute top-2 left-2 text-white text-xs font-semibold z-40 py-1 px-2 rounded bg-blue-500">
+      App
+    </div>
+    {/* Image 1 */}
+    <motion.img
+      src="/wk1.png"
+      alt="Screenshot 1"
+      className="absolute top-12 left-1/4 h-3/4  shadow-xl  z-30 "
+      initial={{ opacity: 0, x: 0 , rotate: 0}}
+      whileInView={{ opacity: 1, x: -70, rotate: 17 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ amount: 0.3 }}
+            whileHover={{  scale: 1.05, zIndex: 35, rotate:0}}
+            whileTap={{  scale: 1.05, zIndex: 35, rotate:0}}
+    />
+    {/* Image 2 */}
+    <motion.img
+      src="/wk2.png"
+      alt="Screenshot 2"
+      className="absolute top-8 left-1/4 h-3/4 shadow-xl z-20 "
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1, rotate: 19 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ amount: 0.3 }}
+      whileHover={{  scale: 1.05, zIndex: 35, rotate:0}}
+      whileTap={{  scale: 1.05, zIndex: 35, rotate:0}}
+
+    />
+    {/* Image 3 */}
+    <motion.img
+      src="/wk3.png"
+      alt="Screenshot 3"
+      className="absolute top-4 left-1/4 h-3/4 z-10 shadow-xl "
+      initial={{ opacity: 0, x: 0, rotate: 0 }}
+      whileInView={{ opacity: 1, x: 70, rotate: 21 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ amount: 0.3 }}
+      whileHover={{  scale: 1.05, zIndex: 35, rotate:0}}
+      whileTap={{  scale: 1.05, zIndex: 35, rotate:0}}
+    />
+  </div>
+</div>
+
             <div ref={wkContainerRef} className="w-full md:w-1/2 lg:w-1/3 flex flex-col items-center justify-center">
                       <Lottie
           lottieRef={wkRef}
           animationData={WK}
           autoplay={false}
           loop={false}
-          className=" mb-[-13%] md:w-1/2"
+          className=" mb-[-13%] w-1/2 "
           style={{ clipPath: 'inset(0 0 30% 0)' }}
         />
 
@@ -144,7 +186,7 @@ useEffect(() => {
 
                 <Link href="/wildknot">
                   <motion.button
-                    className="text-blue-600 border border-blue-600 rounded px-6 mb-12 py-2 text-sm font-semibold hover:bg-blue-600 hover:text-white transition-colors"
+                    className="text-blue-600 border border-blue-600 rounded px-6 py-2 text-sm font-semibold hover:bg-blue-600 hover:text-white transition-colors"
                     whileHover={{ scale: 1.02 }}
                   >
                     View Case Study
@@ -185,7 +227,7 @@ useEffect(() => {
 
           {/* Boutique Hotel Project */}
           <motion.div 
-            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16"
+            className="flex flex-col z-1000 md:flex-row items-center justify-center gap-8 md:gap-16"
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.5 }}
@@ -205,8 +247,8 @@ useEffect(() => {
           animationData={Sicon}
           autoplay={false}
           loop={false}
-          className=" mb-[-13%] md:w-1/2"
-          style={{ clipPath: 'inset(0 0 30% 0)' }}
+       className=" mb-[-13%] w-1/2 "
+                 style={{ clipPath: 'inset(0 0 30% 0)' }}
         />
               <h2 className="text-2xl font-bold mb-4">Boutique Hotel "S"</h2>
               <p className="text-gray-600 mb-6">
@@ -235,28 +277,67 @@ useEffect(() => {
           </motion.div>
   {/* Marine Knots Project */}
           <motion.div 
-            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16"
+            className="flex flex-col z-1000 md:flex-row items-center justify-center gap-8 md:gap-16"
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.5 }}
             viewport={{ amount: 0.3 }}
           >
-            <div className="w-full md:w-1/2 lg:w-1/3">
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <div className="absolute top-2 left-2 text-white text-xs font-semibold z-20 py-1 px-2 rounded bg-blue-500">
-                  App
-                </div>
-                <img src="icon.png" alt="Marine Knots Icon" className="w-full h-auto aspect-[3/3] object-cover" />
-              </div>
-            </div>
+             <div className="w-full md:w-1/2 lg:w-1/3 lg:mr-16">
+  <div className="relative rounded-lg pt-8 overflow-hidden md:overflow-visible h-[75vh] md:h-screen w-screen md:w-auto ">
+    {/* Label */}
+    <div className="absolute top-2 left-2 text-white text-xs font-semibold z-40 py-1 px-2 rounded bg-blue-500">
+      App
+    </div>
+    {/* Image 1 */}
+
+    <motion.img
+      src="/mk1.png"
+      alt="Screenshot 1"
+      className="absolute top-2/5 left-1/4 md:left-1/4   h-3/4 shadow-xl  z-30 origin-[50%_100%]"
+      initial={{ opacity: 0, x: 0 , rotate: 0}}
+      whileInView={{ opacity: 1, x: -20, rotate: -17 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ amount: 0.3 }}
+      whileHover={{  scale: 1.05, zIndex: 35}}
+        whileTap={{  scale: 1.05, zIndex: 35,rotate:0, x:20}}
+    />
+    {/* Image 2 */}
+    <motion.img
+      src="/mk2.png"
+      alt="Screenshot 2"
+      className="absolute top-2/5 left-1/4 md:left-1/4 h-3/4 shadow-xl z-20 "
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ amount: 0.3 }}
+      whileHover={{  scale: 1.05, zIndex: 35}}
+      whileTap={{  scale: 1.05, zIndex: 35}}
+
+    />
+    {/* Image 3 */}
+    <motion.img
+      src="/mk3.png"
+      alt="Screenshot 3"
+      className="absolute top-2/5 left-1/4  md:left-1/4 h-3/4 z-10 shadow-xl origin-[50%_100%]"
+      initial={{ opacity: 0, x: 0, rotate: 0 }}
+      whileInView={{ opacity: 1, x: 20, rotate: 17 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ amount: 0.3 }}
+      whileHover={{  scale: 1.05, zIndex: 35}}
+      whileTap={{  scale: 1.05, zIndex: 35}}
+    />
+
+  </div>
+</div>
             <div ref={mkContainerRef} className="w-full items-center md:w-1/2 lg:w-1/3 flex flex-col justify-center">
                      <Lottie
           lottieRef={mkRef}
           animationData={MK}
           autoplay={false}
           loop={false}
-          className=" mb-[-13%] md:w-1/2"
-          style={{ clipPath: 'inset(0 0 30% 0)' }}
+       className=" mb-[-13%] w-1/2 "
+                 style={{ clipPath: 'inset(0 0 30% 0)' }}
         />
               <h2 className="text-2xl font-bold mb-4">Marine Knots</h2>
               <p className="text-gray-600 mb-6">
@@ -267,14 +348,14 @@ useEffect(() => {
 
                 <Link href="/marineknots">
                   <motion.button
-                    className="text-blue-600 border border-blue-600 rounded px-6 mb-12 py-2 text-sm font-semibold hover:bg-blue-600 hover:text-white transition-colors"
+                    className="text-blue-600 border border-blue-600 rounded px-6  py-2 text-sm font-semibold hover:bg-blue-600 hover:text-white transition-colors"
                     whileHover={{ scale: 1.02 }}
                   >
                     View Case Study
                   </motion.button>
                 </Link>
                    </div>
-    <div className="flex justify-center md:justify-center items-center w-full mt-8 space-x-4">
+    <div className="flex justify-center z-1000 md:justify-center items-center w-full mt-8 space-x-4">
   <a
     href="https://apps.apple.com/us/app/marine-knots/id6451214846"
     target="_blank"
@@ -305,7 +386,7 @@ useEffect(() => {
               </div>
             </div>
           </motion.div>
-         
+         .
 
           {/* Motion Design Project */}
           <motion.div 
@@ -316,7 +397,7 @@ useEffect(() => {
             viewport={{ amount: 0.3 }}
           >
             <div className="w-full md:w-1/2 lg:w-1/3 ">
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
+              <div className="relative rounded-lg overflow-hidden ">
                 <div className="absolute top-2 left-2 text-white text-xs font-semibold z-20 py-1 px-2 rounded bg-orange-500">
                   Motion
                 </div>
@@ -329,8 +410,8 @@ useEffect(() => {
           animationData={Motionicon}
           autoplay={false}
           loop={false}
-          className=" mb-[-13%] md:w-1/2"
-          style={{ clipPath: 'inset(0 0 30% 0)' }}
+       className=" mb-[-13%] w-1/2 "
+                 style={{ clipPath: 'inset(0 0 30% 0)' }}
         />
               <h2 className="text-2xl font-bold mb-4">Motion Design</h2>
               <p className="text-gray-600 mb-6">

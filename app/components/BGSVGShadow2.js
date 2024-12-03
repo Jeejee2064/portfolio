@@ -3,8 +3,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const colorSets = [
   ['#FA5D66', '#FFA1C5', '#ffdb40'], // Set 1
-  ['#e1cb4f', '#cf7530', '#cf7530'], // Set 2
-  ['#cfbe2e', '#c64fd1', '#e5e3d2'], // Set 3
+    ['#FA5D66', '#FFA1C5', '#ffdb40'], 
+   ['#FA5D66', '#FFA1C5', '#ffdb40'], 
 ];
 
 const svgPaths = [
@@ -17,21 +17,18 @@ const svgPaths = [
 ];
 
 const ShapeWithMotion = ({ shape, index, scrollYProgress, mousePosition, onAnimationComplete, totalShapes }) => {
-  const x = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, shape.moveDistance]
-  );
+  const x = useTransform(scrollYProgress, [0, 1], [0, shape.moveDistance]);
+  const opacity = useTransform(scrollYProgress, [0.2, 0.5], [1, 0]); // Adjust the fade-out range
 
   const shadowOffset = {
-    x: -((mousePosition.x - shape.x) / 30) * Math.min(Math.sqrt(
-      Math.pow(mousePosition.x - shape.x, 2) + 
-      Math.pow(mousePosition.y - shape.y, 2)
-    ) / 300, 1),
-    y: -((mousePosition.y - shape.y) / 30) * Math.min(Math.sqrt(
-      Math.pow(mousePosition.x - shape.x, 2) + 
-      Math.pow(mousePosition.y - shape.y, 2)
-    ) / 300, 1),
+    x: -((mousePosition.x - shape.x) / 30) * Math.min(
+      Math.sqrt(Math.pow(mousePosition.x - shape.x, 2) + Math.pow(mousePosition.y - shape.y, 2)) / 300,
+      1
+    ),
+    y: -((mousePosition.y - shape.y) / 30) * Math.min(
+      Math.sqrt(Math.pow(mousePosition.x - shape.x, 2) + Math.pow(mousePosition.y - shape.y, 2)) / 300,
+      1
+    ),
   };
 
   const renderPath = (isShadow = false) => {
@@ -68,8 +65,8 @@ const ShapeWithMotion = ({ shape, index, scrollYProgress, mousePosition, onAnima
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: index * 0.05, duration: 0.5 }}
+      style={{ x, opacity }} // Apply opacity transformation
       onAnimationComplete={index === totalShapes - 1 ? onAnimationComplete : undefined}
-      style={{ x }}
     >
       <g transform={`translate(${shadowOffset.x * 0.3}, ${shadowOffset.y})`} style={{ zIndex: 10 }}>
         {renderPath(true)}
@@ -129,12 +126,12 @@ const BGSVGShadow2 = ({ onAnimationComplete }) => {
   };
 
   const generateShapes = () => {
-    const newShapes = [];
+  const newShapes = [];
 const idealAspectRatio = 16 / 9;
 const actualAspectRatio = dimensions.width / dimensions.height;
 const ratioAdjustment = Math.max(1, idealAspectRatio / actualAspectRatio);
 const shapeCount = Math.floor(dimensions.width * dimensions.height / (40000 / ratioAdjustment));
-    const colorSet = colorSets[Math.floor(Math.random() * colorSets.length)];
+const colorSet = colorSets[Math.floor(Math.random() * colorSets.length)];
 
     for (let i = 0; i < shapeCount; i++) {
       let placed = false;

@@ -33,9 +33,9 @@ const MarineKnots = () => {
 
   return (
     <div>
-      <div className="flex bg-[#283061] h-screen flex-col md:flex-row md:items-center md:justify-between ">
+      <div className="flex bg-[#283061] h-screen flex-col md:flex-row md:items-center md:justify-center ">
 
-        <div className="md:w-1/2    flex flex-col h-screen justify-center items-center rounded-lg ">
+        <div className="md:w-1/2 lg:w-1/3    flex flex-col h-screen justify-center items-center rounded-lg ">
           <Lottie
             animationData={MK}
             loop={0}
@@ -45,7 +45,7 @@ const MarineKnots = () => {
             }}
           />
 
-          <div className='flex justify-center px-8 space-x-8 items-center'>
+          <div className='flex justify-center md:w-3/4 mb-12 md:px-8 space-x-8 items-center'>
 
             <Link className='w-full' href='https://apps.apple.com/us/app/marine-knots/id6451214846'>
               <img src="/appstore.png" alt="App Store badge" className='rounded-lg'/>
@@ -57,16 +57,16 @@ const MarineKnots = () => {
 
           </div>
         </div>
-        <div className="md:w-1/2 flex flex-col h-screen justify-center items-center my-4 px-8 md:mb-0  ">
+        <div className="md:w-1/2 lg:w-1/3 flex flex-col h-screen justify-evenly items-center my-4 px-8 md:mb-0  ">
 
-          <p className="text-md mt-12 text-gray-200">
+          <p className="text-md mt-12 text-gray-200 text-sm">
             Marine Knots is an interactive mobile app teaching over 30 nautical knots, developed by a solo beginner programmer over 9 months. The entire app was coded on a 9.60m sailboat using a solar-powered microcomputer (Raspberry Pi 3).
           </p>
           <div className='flex flex-col mt-8 md:flex my-4 items-center justify-center md:justify-evenly'>
 
-            <div className='mt-8 bg-indigo-950 p-2 text-center rounded-lg text-gray-200'>
+            <div className=' bg-indigo-950 p-2 mb-12 text-center rounded-lg text-gray-200'>
               Tech Stack
-              <div className='w-full flex justify-evenly text-gray-300 mt-4 gap-6'>
+              <div className='w-full flex justify-evenly text-gray-300 text-sm  gap-6'>
                 <div className='justify-center flex flex-col items-center'>
                   <img className='h-16' src="/React.webp" alt="React logo" />
                   React Native
@@ -80,7 +80,7 @@ const MarineKnots = () => {
                   Reanimated
                 </div>
                 <div className='justify-center flex flex-col items-center'>
-                  <img className='h-16' src="/image.avif" alt="i18Next logo" />
+                  <img className='h-16' src="/i18next.png" alt="i18Next logo" />
                   i18Next
                 </div>
               </div>
@@ -88,90 +88,107 @@ const MarineKnots = () => {
           </div>
         </div>
       </div>
-      <div className='flex flex-col md:flex-row justify-center bg-[#283061] w-full h-screen'>
+      <div className='flex flex-col md:flex-row justify-center bg-[#283061] w-screen justify-center items-center '>
         {/* Left Section with Images */}
-        <div ref={screen1} className="w-full h-full md:w-1/2 py-16 my-64  md:my-8 md:mb-0 mx-4 relative flex justify-center items-center">
+        <div ref={screen1} className="w-3/4  md:w-1/2 py-16 my-32  md:overflow-visible md:my-8 md:mb-0 mx-4 relative flex justify-center items-center">
           <motion.img
-            style={{ rotate: rotateD, transformOrigin: '50% 100%' }}
-            src="/651.png"
+            style={{ rotate: rotateD }}
+            src="/mk1.png"
             alt="Feature 1"
-            className="absolute w-1/2 md:w-1/3 rounded-lg shadow-lg object-cover"
+            className="absolute top-0 md:top-[-80%] w-1/2 md:w-1/3 rounded-lg shadow-lg  overflow-hidden origin-[50%_100%]"
           />
           <motion.img
-            style={{ rotate: rotateG, transformOrigin: '50% 100%' }}
-            src="/652.png"
+            style={{ rotate: rotateG }}
+            src="/mk2.png"
             alt="Feature 2"
-            className="absolute w-1/2 md:w-1/3 rounded-lg shadow-lg object-cover"
+            className="absolute top-0 md:top-[-80%] w-1/2 md:w-1/3 rounded-lg shadow-lg  overflow-hidden origin-[50%_100%]"
           />
           <motion.img
-            src="/654.png"
+            src="/mk3.png"
             alt="Feature 3"
-            className="absolute w-1/2 md:w-1/3 rounded-lg shadow-lg object-cover"
+            className="absolute top-0 md:top-[-80%] w-1/2 md:w-1/3 rounded-lg shadow-lg  overflow-hidden origin-[50%_100%]"
           />
         </div>
 
         {/* Right Section with Text */}
-        <div className="w-full md:w-1/2 p-4 mt-12  rounded-lg shadow-lg flex flex-col justify-center">
+        <div className="w-full md:w-1/2 p-4 px-8  my-12  rounded-lg  flex flex-col justify-center">
           <motion.h1
-            className="text-3xl text-[#ffc107] font-bold mb-4"
+            className="text-xl text-[#ffc107] font-bold mb-4"
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 20 }} // Initial state
             transition={{ duration: 0.5 }}
           >
             Key Features:
           </motion.h1>
-
+<ul>
           {[
-            "- Animated tutorials for 30+ nautical knots",
-            "- 2 ways of animating knots: step-by-step or continuous scrolling",
-            "- Intelligent knot selection guide based on user's situation",
-            "- Detailed technical information for each knot",
-            "- Customizable favorite knot list for quick access",
-            "- 100% offline functionality",
-            "- Available in English, French, Spanish, Portugese and German"
+            "Animated tutorials for 30+ nautical knots",
+            "2 ways of animating knots: step-by-step or continuous scrolling",
+            "Intelligent knot selection guide based on user's situation",
+            "Detailed technical information for each knot",
+            "Customizable favorite knot list for quick access",
+            "100% offline functionality",
+            "Available in English, French, Spanish, Portugese and German"
           ].map((feature, index) => (
-            <motion.p
+            <motion.li
               key={index}
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 20 }} // Initial state
               transition={{ duration: 0.5 }}
-              className="text-lg text-gray-200 mb-2"
+              className=" text-gray-200  mb-2"
             >
               {feature}
-            </motion.p>
+            </motion.li>
+
           ))}
+          </ul>
         </div>
       </div>
 
-      <img src='/separator2.svg' className='w-screen' />
+      <img src='/separator2.svg' className='w-screen mt-[-3%]' />
 
       <section className="bg-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-extrabold text-[#ffc107] sm:text-4xl flex justify-center items-center">
+          <motion.h2 
+          className="text-3xl font-extrabold text-[#ffc107] sm:text-4xl flex justify-center items-center"
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }} // Initial state
+            transition={{ duration: 0.5 }}
+            >
 
             App Reviews
-          </h2>
+          </motion.h2>
           <div className="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-2">
             {/* Testimonial 1 */}
             <div className="p-6 rounded-lg text-[#283061] text-lg font-medium">
-              <p>
+                        <motion.p
+
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }} // Initial state
+            transition={{ duration: 0.5 }}
+            >
 
                 &quot;Very good app for learning or getting back into marine knots. Simple and effective, it has everything you need. Really handy, even for beginners! To be used without moderation.&quot;
 
-              </p>
+              </motion.p>
               <p className="mt-4 text-gray-400 text-sm font-semibold">- Gil Lou Moustache</p>
             </div>
 
             {/* Testimonial 2 */}
             <div className=" p-6 rounded-lg  text-[#283061] text-lg font-medium">
 
-              <p>
+                                <motion.p
+
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }} // Initial state
+            transition={{ duration: 0.5 }}
+            >
 
                 &quot;An essential app for sailors of any level. Smooth and fast app, very easy to understand.&quot;
 
 
 
-              </p>
+              </motion.p>
               <p className="mt-4 text-gray-400 text-sm font-semibold">- Johan Minio</p>
             </div>
           </div>

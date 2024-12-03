@@ -4,8 +4,8 @@ import { useState } from 'react';
 import BGSVGShadow from './BGSVGShadow';
 import localFont from 'next/font/local';
 
-const mind = localFont({
-  src: '../MINDCONTROL.ttf', // Adjust the path accordingly
+const neon = localFont({
+  src: '../Neon.ttf', // Adjust the path accordingly
 
 })
 export default function Hero() {
@@ -36,17 +36,17 @@ export default function Hero() {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center flex h-screen w-screen bg-indigo-950 overflow-hidden">
+      <div className="flex flex-col items-center justify-center h-screen w-screen bg-indigo-950 overflow-hidden">
         {/* Pass the completion handler to BGSVGShadow */}
         <BGSVGShadow onAnimationComplete={handleBgAnimationComplete} />
 
         {/* Text content that appears after background animation */}
-        <div className="text-center px-6 z-[200] w-screen">
+        <div className="text-center  px-6 z-[200] w-screen">
           <motion.p
             variants={textVariants}
             initial="hidden"
             animate={bgAnimationComplete ? "visible" : "hidden"}
-            className="text-white z-100 text-xl z-100 md:text-2xl font-extrabold mb-4"
+            className="text-white z-100 text-xl z-100 md:text-2xl  mb-4"
           >
            Hi! I&apos;m Jérôme
           </motion.p>
@@ -56,7 +56,7 @@ export default function Hero() {
             initial="hidden"
             animate={bgAnimationComplete ? "visible" : "hidden"}
             transition={{ delay: 0.2 }}
-            className="text-white text-5xl md:text-6xl font-light"
+            className="text-white text-4xl md:text-5xl font-bold"
           >
             I design, develop, and publish digital products
           </motion.h1>
@@ -69,32 +69,21 @@ export default function Hero() {
           >
             this background has been (pseudo) randomly generated, refresh
           </motion.p>
+                    <motion.button 
+                     variants={textVariants}
+            initial="hidden"
+            animate={bgAnimationComplete ? "visible" : "hidden"}
+            transition={{ delay: 0.4 }}
+            className='my-8 px-4 py-4 shadow-lg text-indigo-950 rounded-lg z-300 bg-gradient-to-r from-[#FA5D66] via-[#FFA1C5] via-[#ffdb40] to-[#FA5D66]'>
+Let's create something great together !
+          </motion.button>
         </div>
 
-        {/* Ticker container */}
-        <motion.div
-          className="absolute bottom-8 w-full overflow-hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: bgAnimationComplete ? 1 : 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <motion.div
-            initial={{ x: 0 }}
-            animate={{ x: "-50%" }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 20,
-              ease: "linear",
-              delay: 0.4
-            }}
-            className="flex whitespace-nowrap"
-          >
-          <div className={mind.className}>
-            <span className="text-4xl text-gray-300 font-bold bg-gradient-to-r from-[#FA5D66] via-[#FFA1C5] via-[#ffdb40] to-[#FA5D66] bg-clip-text text-transparent">{duplicatedText}</span>
-           </div>
-          </motion.div>
-        </motion.div>
+   
+ 
+
+
+    
       </div>
     </div>
   );

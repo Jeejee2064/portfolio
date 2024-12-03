@@ -189,73 +189,73 @@ const Knots = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center"
+            className="fixed inset-0 z-50 h- screen flex items-center justify-center"
             style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
           >
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.5, opacity: 0 }}
-              className="bg-[#283061] p-8 rounded-lg w-full h-full overflow-y-auto"
+              className="bg-[#283061] p-8 rounded-lg  overflow-y-auto"
             >
-              <div className="max-w-6xl mx-auto">
-           <span className="text-xl text-bold mb-2 text-white">Alpine Butterfly</span>
+<div className="mx-auto flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0">
+  {/* Left Section: Title and Lottie Animation */}
+  <div className="flex flex-col items-center justify-center space-y-2 md:w-1/2">
+    <span className="text-xl font-bold mb-2  text-center text-white">
+      Alpine Butterfly
+    </span>
+    <div className="flex items-center justify-center bg-white rounded-full border-[#ffc107] border-8 p-4">
+      <Lottie
+        lottieRef={modalLottieRef}
+        animationData={animationData}
+        autoplay={false}
+        loop={false}
+        className="sm:h-[20vh] sm:w-[20vh] md:h-[50vh] md:w-[50vh]"
+        style={{ clipPath: 'inset(0 0 20% 0)' }}
+      />
+    </div>
+  </div>
 
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="flex flex-col space-y-2">
-                    {/* Uses Section */}
-                    <div className="px-6 py-2 rounded-lg">
-                      <h3 className="text-xl font-semibold text-[#FFC107] mb-3">Uses</h3>
-                      <ul className="list-inside text-white space-y-2">
-                        <li>Creating a secure loop in the middle of a rope.</li>
-                        <li>Isolating damaged sections of rope.</li>
-                        
-                      </ul>
-                    </div>
-                    
-                    {/* Characteristics Section */}
-                    <div className=" px-6 py-2 rounded-lg">
-                      <h3 className="text-xl font-semibold text-[#FFC107] mb-3">Characteristics</h3>
-                      <ul className=" list-inside text-white space-y-2">
-                        <li>Non-binding under load - easily untied after use.</li>
-                        <li>Maintains approximately 70% of rope strength.</li>
-                       
-                      </ul>
-                    </div>
+  {/* Right Section: Text Content and Button */}
+  <div className="flex flex-col space-y-4 md:w-1/2">
+    {/* Uses Section */}
+    <div className="rounded-lg">
+      <h3 className="text-l font-semibold text-[#FFC107] mb-1">Uses</h3>
+      <ul className="list-inside text-white text-sm">
+        <li>Creating a secure loop in the middle of a rope.</li>
+        <li>Isolating damaged sections of rope.</li>
+      </ul>
+    </div>
 
-                    {/* Advice Section */}
-                    <div className="px-6 py-2 rounded-lg">
-                      <h3 className="text-xl font-semibold text-[#FFC107] mb-3">Advice</h3>
-                      <ul className="list-inside text-white space-y-2">
-                        <li>Always twist the rope twice in the same direction when making the '8' (step 2).</li>
-                      
-                      </ul>
-                    </div>
-                  </div>
+    {/* Characteristics Section */}
+    <div className="rounded-lg">
+      <h3 className="text-l font-semibold text-[#FFC107] mb-1">Characteristics</h3>
+      <ul className="list-inside text-white text-sm">
+        <li>Non-binding under load - easily untied after use.</li>
+        <li>Maintains approximately 70% of rope strength.</li>
+      </ul>
+    </div>
 
-                  <div className="flex flex-col items-center justify-center bg-white rounded-full border-[#ffc107] border-8 p-4">
-                    <Lottie
-                      lottieRef={modalLottieRef}
-                      animationData={animationData}
-                      autoplay={false}
-                      loop={false}
-                      className="w-[60vh] h-[60vh]"
-                      style={{clipPath: 'inset(0 0 20% 0)',}}
-                    />
-          
-                  </div>
-                </div>
+    {/* Advice Section */}
+    <div className="rounded-lg">
+      <h3 className="text-l font-semibold text-[#FFC107] mb-1">Advice</h3>
+      <ul className="list-inside text-white text-sm">
+        <li>Always twist the rope twice in the same direction when making the '8' (step 2).</li>
+      </ul>
+    </div>
 
-                <motion.button
-                  onClick={() => setIsModalOpen(false)}
-                  className="mt-8 w-full px-6 py-3 bg-[#FFC107] text-[#283061] rounded-lg font-medium"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Close
-                </motion.button>
-              </div>
+    {/* Close Button */}
+    <motion.button
+      onClick={() => setIsModalOpen(false)}
+      className="mt-2 w-full px-6 py-3 bg-[#FFC107] text-[#283061] rounded-lg font-medium"
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      Close
+    </motion.button>
+  </div>
+</div>
+
             </motion.div>
           </motion.div>
         )}
