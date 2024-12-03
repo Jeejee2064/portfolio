@@ -346,7 +346,7 @@ useEffect(() => {
               <div className="flex flex-col space-y-4">
                                               <div className="flex justify-center items-center space-x-4">
 
-                <Link href="/marineknots">
+                <Link href="#">
                   <motion.button
                     className="text-blue-600 border border-blue-600 rounded px-6  py-2 text-sm font-semibold hover:bg-blue-600 hover:text-white transition-colors"
                     whileHover={{ scale: 1.02 }}
