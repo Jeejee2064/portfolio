@@ -3,7 +3,6 @@ import Hero from './components/Hero'
 import ScrollShadow from './components/ScrollShadow'
 import WorkSection from './components/WorkSection'
 import AboutMe from './components/AboutMe'
-import Contact from './components/Contact'
 
 export default function Main() {
   return (
@@ -15,9 +14,7 @@ export default function Main() {
       <section >
         <AboutMe />
       </section>
-      <section >
-        <Contact />
-      </section>
+
     </main>
   );
 }
