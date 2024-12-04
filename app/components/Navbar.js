@@ -1,51 +1,19 @@
 'use client';
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import localFont from 'next/font/local';
-import Hero from './components/Hero';
-import WorkSection from './components/WorkSection';
-import AboutMe from './components/AboutMe';
-import Contact from './components/Contact';
 
 const neon = localFont({
-  src: './Neon.ttf',
+  src: '../Neon.ttf', // Adjust the path accordingly
 });
 
-export default function Main() {
+const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
-  
-  // Create refs for each section
-  const sectionRefs = {
-    works: useRef(null),
-    about: useRef(null),
-    contact: useRef(null),
-  };
 
-  // Smooth scrolling function with easing
-  const smoothScrollTo = useCallback((targetPosition, duration) => {
-    const start = window.pageYOffset;
-    const distance = targetPosition - start;
-    const startTime = performance.now();
-    
-    const easeInOutQuad = (t) =>
-      t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-    
-    const step = (currentTime) => {
-      const elapsedTime = currentTime - startTime;
-      const progress = Math.min(elapsedTime / duration, 1);
-      const ease = easeInOutQuad(progress);
-      window.scrollTo(0, start + distance * ease);
-      
-      if (elapsedTime < duration) {
-        requestAnimationFrame(step);
-      }
-    };
-    
-    requestAnimationFrame(step);
-  }, []);
+  const scrollToSection = (sectionId) => {
+    // Check if we're in a browser environment
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
 
-  // Scroll to section function
-  const scrollToSection = useCallback((sectionId) => {
-    const element = sectionRefs[sectionId].current;
+    const element = document.getElementById(sectionId);
     if (!element) return;
 
     // Set active section
@@ -53,7 +21,7 @@ export default function Main() {
 
     // Check screen size
     const isSmallScreen = window.innerWidth < 640;
-    
+
     // Get the element's position relative to the viewport
     const rect = element.getBoundingClientRect();
     const absoluteElementTop = rect.top + window.pageYOffset;
@@ -73,10 +41,35 @@ export default function Main() {
     setTimeout(() => {
       smoothScrollTo(finalScrollPosition, 2000);
     }, 50);
-  }, [smoothScrollTo]);
+  };
 
-  // Navbar component
-  const Navbar = () => (
+  // Smooth scrolling function with easing
+  const smoothScrollTo = (targetPosition, duration) => {
+    // Check if we're in a browser environment
+    if (typeof window === 'undefined') return;
+
+    const start = window.pageYOffset;
+    const distance = targetPosition - start;
+    const startTime = performance.now();
+
+    const easeInOutQuad = (t) =>
+      t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
+    const step = (currentTime) => {
+      const elapsedTime = currentTime - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+      const ease = easeInOutQuad(progress);
+      window.scrollTo(0, start + distance * ease);
+
+      if (elapsedTime < duration) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
+  return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div className={`${neon.className} bg-gradient-to-b from-gray-800/70 to-transparent`}>
         <div className="mx-auto px-4">
@@ -101,20 +94,6 @@ export default function Main() {
       </div>
     </nav>
   );
+};
 
-  return (
-    <main className="relative">
-      <Navbar />
-      <Hero />
-      <section ref={sectionRefs.works}>
-        <WorkSection />
-      </section>
-      <section ref={sectionRefs.about}>
-        <AboutMe />
-      </section>
-      <section ref={sectionRefs.contact}>
-        <Contact />
-      </section>
-    </main>
-  );
-}
+export default Navbar;
