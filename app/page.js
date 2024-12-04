@@ -10,6 +10,10 @@ export default function Main() {
     <main className="relative">
       <Hero />
 
+      <section >
+        <AboutMe />
+      </section>
+
     </main>
   );
 }
