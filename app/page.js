@@ -10,7 +10,7 @@ export default function Main() {
     <main className="relative">
       <Hero />
 
-        <Contact />
+
  
 
     </main>

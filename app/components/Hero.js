@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import BGSVGShadow from './BGSVGShadow';
 import localFont from 'next/font/local';
+import Lottie from 'lottie-react';
+import Motionicon from '../lottie/Motionicon.json'; 
 
 const neon = localFont({
   src: '../Neon.ttf', // Adjust the path accordingly
@@ -50,7 +52,14 @@ export default function Hero() {
           >
            Hi! I&apos;m Jérôme
           </motion.p>
-
+  <Lottie
+        
+          animationData={Motionicon}
+          autoplay={true}
+          loop={true}
+       className=" mb-[-13%] w-1/2 "
+                 style={{ clipPath: 'inset(0 0 30% 0)' }}
+        />
           <motion.h1
             variants={textVariants}
             initial="hidden"
