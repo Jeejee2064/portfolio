@@ -4,7 +4,6 @@ import { useRef, useEffect } from 'react';
 import Lottie from 'lottie-react';
 import animationData from '../lottie/contact.json';
 import Link from 'next/link';
-import BGSVGShadow2 from './BGSVGShadow2';
 import ContactSection from './ContactSection';
 
 const Contact = () => {
