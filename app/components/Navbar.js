@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import localFont from 'next/font/local';
 
 const neon = localFont({
@@ -10,21 +10,26 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
 
   const scrollToSection = (sectionId) => {
+    // Check if we're in a browser environment
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
     const element = document.getElementById(sectionId);
     if (!element) return;
 
     // Set active section
     setActiveSection(sectionId);
 
+    // Check screen size
+    const isSmallScreen = window.innerWidth < 640;
+
     // Get the element's position relative to the viewport
     const rect = element.getBoundingClientRect();
     const absoluteElementTop = rect.top + window.pageYOffset;
-  const isSmallScreen = window.innerWidth < 640;
+    const viewportHeight = window.innerHeight;
 
     // Calculate positions
-    const viewportHeight = window.innerHeight;
-    const finalScrollPosition = absoluteElementTop + viewportHeight* (isSmallScreen ? 0.5 : 1); // Final position + 1 screen height
-    const initialScrollPosition = finalScrollPosition - viewportHeight * (isSmallScreen ? 0.8 : 1.3); // Start position higher
+    const finalScrollPosition = absoluteElementTop + viewportHeight * (isSmallScreen ? 0.5 : 1);
+    const initialScrollPosition = finalScrollPosition - viewportHeight * (isSmallScreen ? 0.8 : 1.3);
 
     // Step 1: Instantly jump to the initial position
     window.scrollTo({
@@ -34,12 +39,15 @@ const Navbar = () => {
 
     // Step 2: Smooth scroll to the final position with animation
     setTimeout(() => {
-      smoothScrollTo(finalScrollPosition, 2000); // Slow down scrolling duration to 1.5 seconds
+      smoothScrollTo(finalScrollPosition, 2000);
     }, 50);
   };
 
   // Smooth scrolling function with easing
   const smoothScrollTo = (targetPosition, duration) => {
+    // Check if we're in a browser environment
+    if (typeof window === 'undefined') return;
+
     const start = window.pageYOffset;
     const distance = targetPosition - start;
     const startTime = performance.now();
@@ -49,9 +57,8 @@ const Navbar = () => {
 
     const step = (currentTime) => {
       const elapsedTime = currentTime - startTime;
-      const progress = Math.min(elapsedTime / duration, 1); // Clamp to 1 for final frame
+      const progress = Math.min(elapsedTime / duration, 1);
       const ease = easeInOutQuad(progress);
-
       window.scrollTo(0, start + distance * ease);
 
       if (elapsedTime < duration) {
