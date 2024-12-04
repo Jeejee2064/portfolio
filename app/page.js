@@ -9,9 +9,9 @@ export default function Main() {
   return (
     <main className="relative">
       <Hero />
-      <section >
+
         <WorkSection />
-      </section>
+ 
 
     </main>
   );
