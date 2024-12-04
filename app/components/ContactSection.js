@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -39,17 +39,17 @@ const ContactSection = () => {
           <h2 className="text-2xl font-bold text-white mb-4">Contact Information</h2>
           
           <div className="flex items-center space-x-4">
-            <Mail className="text-[#FA5D66] w-6 h-6" />
+   
             <span className='text-white'>jdwapp@gmail.com</span>
           </div>
           
           <div className="flex items-center space-x-4">
-            <Phone className="text-[#FFA1C5] w-6 h-6" />
+    
             <span className='text-white'>+507 6241-0588</span>
           </div>
           
           <div className="flex items-center space-x-4">
-            <MapPin className="text-[#ffdb40] w-6 h-6" />
+            
             <span className='text-white'>Isla Colón, Bocas del Toro, Panama</span>
           </div>
         </div>
@@ -94,7 +94,7 @@ const ContactSection = () => {
               type="submit"
               className="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition-colors flex items-center justify-center"
             >
-              <Send className="mr-2 w-5 h-5" /> Send Message
+              Send Message
             </motion.button>
           </form>
         </div>
