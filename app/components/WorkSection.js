@@ -10,7 +10,6 @@ import WK from '../lottie/wk.json';
 import Sicon from '../lottie/Sicon.json'; 
 import Motionicon from '../lottie/Motionicon.json'; 
 import BGSVGShadow2 from './BGSVGShadow2';
-import OverlappingScreenshots from './OverlappingScreenshots';
 
 const WorkSection = () => {
   const sectionRef = useRef(null);
