@@ -21,13 +21,7 @@ const MarineKnots = () => {
 
 
   const screen1 = useRef(null)
-  useEffect(() => {
-    // Check if running on the client side before accessing the document object
-    if (typeof window !== 'undefined') {
-      // Access the document object
-      console.log(document);
-    }
-  }, []);
+
   const { scrollYProgress } = useScroll({
     target: screen1,
     offset: ["start end", "end end"]
