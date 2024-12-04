@@ -4,7 +4,7 @@ import { useRef, useEffect } from 'react';
 import Lottie from 'lottie-react';
 import animationData from '../lottie/about.json';
 import Link from 'next/link';
-import BGSVGShadow2 from './BGSVGShadow2';
+
 import watasani from '../lottie/watasani.json';
 
 const AboutMe = () => {
@@ -48,7 +48,7 @@ const AboutMe = () => {
   return (
     <motion.div className='bg-indigo-950' >
       <div ref={sectionRef} className="w-full bg-indigo-950 mb-8  h-[50vh] md:h-screen flex justify-center items-center">
-               <BGSVGShadow2 />
+           
 
         <Lottie
           lottieRef={lottieRef}
