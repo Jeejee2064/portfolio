@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 import lottie1 from '../lottie/zig.json';
 import lottie2 from '../lottie/wiggle.json';
 import lottie3 from '../lottie/bounce.json';

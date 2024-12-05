@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useRef, useEffect, useState } from 'react';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 import animationData from '../lottie/motion5.json'; // Main animation
 import tenteAnim from '../lottie/tenteanim.json'; // Animation for the first cell
 import anim2 from '../lottie/staywild.json'; // Animation for the second cell

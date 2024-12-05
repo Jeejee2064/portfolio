@@ -1,6 +1,7 @@
 'use client'
 import React, { useRef, useState, useEffect } from 'react';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 import animationData from '../lottie/PapillonBoucle.json';
 import { useSpring, animated } from '@react-spring/web';
 import { Range, getTrackBackground } from 'react-range';

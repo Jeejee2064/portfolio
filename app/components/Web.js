@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef, useEffect, useState } from 'react';
-import Lottie from 'lottie-react';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 import animationData from '../lottie/Web.json'; // Ensure this path is correct
 import ParallaxHero from './ParallaxHero'
 

@@ -4,7 +4,8 @@ import ScrollShadow from '../components/ScrollShadow';
 import { Pacifico } from "next/font/google";
 import { motion, useTransform, useScroll } from 'framer-motion';
 import React, { useRef, useEffect } from 'react';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 import Link from 'next/link';
 
 import MK from '../lottie/mk.json'; // Ensure this path is correct

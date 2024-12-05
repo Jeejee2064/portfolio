@@ -1,6 +1,7 @@
 'use client'
 import React, { useRef, useState } from 'react';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 import { useSpring } from '@react-spring/web';
 import animationData from '../lottie/Tent.json'; // Ensure this path is correct
 

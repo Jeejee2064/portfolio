@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useRef, useEffect } from 'react';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 import MK from '../lottie/mk.json'; // Ensure this path is correct
 import WK from '../lottie/wk.json'; // Ensure this path is correct
