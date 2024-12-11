@@ -15,57 +15,73 @@ import BGSVGShadow2 from './BGSVGShadow2';
 const WorkSection = () => {
   const sectionRef = useRef(null);
   const lottieRef = useRef(null);
-const mkContainerRef = useRef(null); // Reference to the MK container
-const wkContainerRef = useRef(null); // Reference to the WK container
-const SContainerRef = useRef(null); // Reference to the S container
-const MotContainerRef = useRef(null); // Reference to the Mot container
+  
+  // Container refs for each Lottie animation
+  const mkContainerRef = useRef(null);
+  const wkContainerRef = useRef(null);
+  const SContainerRef = useRef(null);
+  const MotContainerRef = useRef(null);
 
-const mkRef = useRef(null); // MK animation instance
-const wkRef = useRef(null); // WK animation instance
-const SRef = useRef(null);  // S animation instance
-const MotRef = useRef(null); // Mot animation instance
+  // Lottie animation refs
+  const mkRef = useRef(null);
+  const wkRef = useRef(null);
+  const SRef = useRef(null);
+  const MotRef = useRef(null);
 
-useEffect(() => {
-  // All container elements and corresponding refs
-  const elements = [
-    { container: mkContainerRef.current, animation: mkRef.current },
-    { container: wkContainerRef.current, animation: wkRef.current },
-    { container: SContainerRef.current, animation: SRef.current },
-    { container: MotContainerRef.current, animation: MotRef.current },
-  ];
-
-  // Function to handle intersection and play animations
-  const handleIntersection = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-        const element = elements.find(el => el.container === entry.target);
-        if (element && element.animation) {
-          element.animation.play(); // Play the animation
-          observer.unobserve(entry.target); // Stop observing after playing
+  useEffect(() => {
+    // Function to handle intersection for a single Lottie animation
+    const createIntersectionHandler = (lottieRef) => (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+          // Play the animation when at least 30% is visible
+          lottieRef.current?.play();
+          // Stop observing this element after playing
+          observer.unobserve(entry.target);
         }
+      });
+    };
+
+    // Create observers for each Lottie animation
+    const observers = [
+      {
+        container: mkContainerRef.current,
+        handler: createIntersectionHandler(mkRef),
+      },
+      {
+        container: wkContainerRef.current,
+        handler: createIntersectionHandler(wkRef),
+      },
+      {
+        container: SContainerRef.current,
+        handler: createIntersectionHandler(SRef),
+      },
+      {
+        container: MotContainerRef.current,
+        handler: createIntersectionHandler(MotRef),
       }
-    });
-  };
+    ];
 
-  // Create an Intersection Observer
-  const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.5, // Trigger when 50% is visible
-  });
-
-  // Observe all container elements
-  elements.forEach(({ container }) => {
-    if (container) {
+    // Create and start observing each container
+    const intersectionObservers = observers.map(({ container, handler }) => {
+      if (!container) return null;
+      
+      const observer = new IntersectionObserver(handler, {
+        threshold: 0.3 // Trigger when 30% is visible
+      });
+      
       observer.observe(container);
-    }
-  });
+      return observer;
+    }).filter(Boolean); // Remove any null observers
 
-  // Cleanup observer on component unmount
-  return () => {
-    elements.forEach(({ container }) => {
-      if (container) observer.unobserve(container);
-    });
-  };
-}, []);
+    // Cleanup function to stop observing
+    return () => {
+      intersectionObservers.forEach(observer => {
+        observers.forEach(({ container }) => {
+          if (container) observer.unobserve(container);
+        });
+      });
+    };
+  }, []);
 
 
   const { scrollYProgress: scrollYProgressBg } = useScroll({
@@ -168,6 +184,7 @@ useEffect(() => {
 </div>
 
             <div ref={wkContainerRef} className="w-full md:w-1/2 lg:w-1/3 flex flex-col items-center justify-center">
+                     
                       <Lottie
           lottieRef={wkRef}
           animationData={WK}
