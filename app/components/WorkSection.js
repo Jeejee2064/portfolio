@@ -9,6 +9,7 @@ import Image from 'next/image';
 import MK from '../lottie/mk.json'; 
 import WK from '../lottie/wk.json'; 
 import Sicon from '../lottie/Sicon.json'; 
+import coco from '../lottie/coco.json'; 
 import Motionicon from '../lottie/Motionicon.json'; 
 import BGSVGShadow2 from './BGSVGShadow2';
 
@@ -276,14 +277,15 @@ const WorkSection = () => {
   href="https://www.hotel-s-bocas.com"
   target="_blank"
   rel="noopener noreferrer"
-  className="bg-blue-500 text-white text-sm font-semibold rounded px-6 py-2 hover:bg-blue-600 transition-colors"
+                    className="text-blue-600 border border-blue-600 rounded px-6 py-2 text-sm font-semibold hover:bg-blue-600 hover:text-white transition-colors"
   whileHover={{ scale: 1.02 }}
 >
   Visit Website
 </motion.a>
                 <Link href="/hotels">
                   <motion.button
-                    className="text-blue-600 border border-blue-600 rounded px-6 py-2 text-sm font-semibold hover:bg-blue-600 hover:text-white transition-colors"
+                    className="bg-blue-500 text-white text-sm font-semibold rounded px-6 py-2 hover:bg-blue-600 transition-colors"
+
                     whileHover={{ scale: 1.02 }}
                   >
                     View Case Study
@@ -357,7 +359,7 @@ const WorkSection = () => {
                  style={{ clipPath: 'inset(0 0 30% 0)' }}
         />
               <h2 className="text-2xl font-bold mb-4">Marine Knots</h2>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 p-8 mb-6">
                 Master more than 30 marine knots to tackle any situation while onboard.
               </p>
               <div className="flex flex-col space-y-4">
@@ -418,7 +420,14 @@ const WorkSection = () => {
                 <div className="absolute top-2 left-2 text-white text-xs font-semibold z-20 py-1 px-2 rounded bg-orange-500">
                   Motion
                 </div>
-                <img src="bg.jpg" alt="Motion Design" className="w-full h-auto aspect-[3/3] object-cover" />
+                                    <Lottie
+         
+          animationData={coco}
+          autoplay={true}
+          loop={true}
+          className="  "
+          style={{ clipPath: 'inset(0 0 20% 0)' }}
+        />
               </div>
             </div>
                        <div ref={MotContainerRef} className="w-full md:w-1/2 lg:w-1/3 flex flex-col items-center justify-center">

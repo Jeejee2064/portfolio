@@ -91,7 +91,7 @@ const Knots = () => {
   }, [isModalOpen]);
 
   return (
-    <div className="flex flex-col items-center  aspect-w-9 aspect-h-16 bg-[#283061] rounded-lg">
+    <div className="flex flex-col items-center justify-center aspect-w-9 aspect-h-16 bg-[#283061] rounded-lg">
       <span className='text-xl text-bold mb-2 text-white'>Alpine Butterfly</span>
       <div className="relative bg-white" style={{ borderRadius: '50%', border: '8px solid #FFC107' }}>
         <Lottie
@@ -211,7 +211,7 @@ const Knots = () => {
         animationData={animationData}
         autoplay={false}
         loop={false}
-        className="sm:h-[20vh] sm:w-[20vh] md:h-[50vh] md:w-[50vh]"
+        className="h-[20vh] w-[20vh] md:h-[50vh] md:w-[50vh]"
         style={{ clipPath: 'inset(0 0 20% 0)' }}
       />
     </div>

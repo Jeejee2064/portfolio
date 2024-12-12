@@ -46,7 +46,7 @@ export default function Hero() {
             variants={textVariants}
             initial="hidden"
             animate={bgAnimationComplete ? "visible" : "hidden"}
-            className="text-white z-100 text-xl z-100 md:text-2xl  mb-4"
+            className="text-white z-100 text-3xl z-100 md:text-4xl  mb-4"
           >
            Hi! I&apos;m Jérôme
           </motion.p>
@@ -60,23 +60,31 @@ export default function Hero() {
           >
             I design, develop, and publish digital products
           </motion.h1>
-          <motion.p
-            variants={textVariants}
-            initial="hidden"
-            animate={bgAnimationComplete ? "visible" : "hidden"}
-            transition={{ delay: 0.2 }}
-            className="text-white z-100 mt-12 text-sm font-light"
-          >
-            this background has been (pseudo) randomly generated, refresh
-          </motion.p>
-                    <motion.button 
-                     variants={textVariants}
-            initial="hidden"
-            animate={bgAnimationComplete ? "visible" : "hidden"}
-            transition={{ delay: 0.4 }}
-            className='my-8 px-4 py-4 shadow-lg text-indigo-950 rounded-lg z-300 bg-gradient-to-r from-[#FA5D66] via-[#FFA1C5] via-[#ffdb40] to-[#FA5D66]'>
-Let's create something great together !
-          </motion.button>
+
+      <motion.button 
+      variants={{
+        hidden: { opacity: 0, scale: 0.9 },
+        visible: { opacity: 1, scale: 1 }
+      }}
+      initial="hidden"
+      animate={bgAnimationComplete ? "visible" : "hidden"}
+      transition={{ delay: 0.1 }}
+      whileHover={{
+        backgroundImage: `linear-gradient(to right, 
+          #FFA1C5, 
+          #ffdb40, 
+          #FA5D66
+        )`,
+        transition: { 
+          duration: 0.5,
+          ease: "easeInOut"
+        },
+        scale: 1.02
+      }}
+      className='my-8 px-2 py-4 shadow-lg text-gray-950 rounded-xl z-300 bg-gradient-to-r from-[#FA5D66] via-[#FFA1C5] to-[#ffdb40]'
+    >
+      Let's create something great together !
+    </motion.button>
         </div>
 
    
