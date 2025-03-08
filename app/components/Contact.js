@@ -9,7 +9,7 @@ import BGSVGShadow2 from './BGSVGShadow2';
 import ContactSection from './ContactSection';
 
 const Contact = () => {
-  
+
   const sectionRef = useRef(null);
   const lottieRef = useRef(null);
 
@@ -47,9 +47,9 @@ const Contact = () => {
   }, [scrollYProgressLottie]);
 
   return (
-    <motion.div className='bg-indigo-950' >
-      <div ref={sectionRef} className="w-full  h-[50vh] md:h-screen bg-indigo-950 flex justify-center items-center">
-              
+    <motion.div className='bg-indigo-950 min-h-screen' >
+      <div ref={sectionRef} className="w-full  h-[50vh] bg-indigo-950 flex justify-center items-center">
+
 
         <Lottie
           lottieRef={lottieRef}
@@ -61,8 +61,8 @@ const Contact = () => {
         />
       </div>
 
-      <div className="min-h-screen bg-indigo-950 ">
-      <ContactSection/> 
+      <div className=" bg-indigo-950 ">
+        <ContactSection />
       </div>
     </motion.div>
   );

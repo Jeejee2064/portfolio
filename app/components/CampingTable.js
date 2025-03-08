@@ -349,7 +349,7 @@ const CampingTable = () => {
 
   return (
 
-    <div className="flex flex-col items-center justify-evenly min-h-screen bg-[#0b382c]  rounded-lg">
+    <div className="flex flex-col border-4  rounded-lg border-black items-center justify-evenly min-h-screen bg-[#0b382c]  rounded-lg">
       <p className='text-xl mt-2 text-bold text-center text-white'>Camping Table</p>
       <svg viewBox="0 0 1650 1000" className=' h-[30vh] lg:h-[40vh]'>
 

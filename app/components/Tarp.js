@@ -76,7 +76,7 @@ const Tarp = () => {
   const isNextDisabled = currentStep === numSteps;
 
   return (
-    <div className="flex flex-col items-center justify-evenly min-h-screen bg-[#0B382C] p-8 ">
+    <div className="flex flex-col items-center justify-evenly min-h-screen bg-[#0B382C] p-8 border-4  rounded-lg border-black">
       <span className='text-xl text-bold text-center text-white'>Tarp Tent</span>
 
       <div >

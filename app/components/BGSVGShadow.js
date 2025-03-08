@@ -4,8 +4,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const colorSets = [
   ['#FA5D66', '#FFA1C5', '#ffdb40'], // Set 1
-    ['#FA5D66', '#FFA1C5', '#ffdb40'], // Set 1
-    ['#FA5D66', '#FFA1C5', '#ffdb40'], // Set 1
+  ['#FA5D66', '#FFA1C5', '#ffdb40'], // Set 1
+  ['#FA5D66', '#FFA1C5', '#ffdb40'], // Set 1
 ];
 
 const svgPaths = [
@@ -129,10 +129,10 @@ const BGSVGShadow = ({ onAnimationComplete }) => {
 
   const generateShapes = () => {
     const newShapes = [];
-const idealAspectRatio = 16 / 9;
-const actualAspectRatio = dimensions.width / dimensions.height;
-const ratioAdjustment = Math.max(1, idealAspectRatio / actualAspectRatio);
-const shapeCount = Math.floor(dimensions.width * dimensions.height / (55000 / ratioAdjustment));
+    const idealAspectRatio = 16 / 9;
+    const actualAspectRatio = dimensions.width / dimensions.height;
+    const ratioAdjustment = Math.max(1, idealAspectRatio / actualAspectRatio);
+    const shapeCount = Math.floor(dimensions.width * dimensions.height / (55000 / ratioAdjustment));
     const colorSet = colorSets[Math.floor(Math.random() * colorSets.length)];
 
     for (let i = 0; i < shapeCount; i++) {

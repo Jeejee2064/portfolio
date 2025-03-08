@@ -20,7 +20,7 @@ const Navbar = () => {
     setActiveSection(sectionId);
 
     // Check screen size
-    const isSmallScreen = window.innerWidth < 640;
+  
 
     // Get the element's position relative to the viewport
     const rect = element.getBoundingClientRect();
@@ -28,8 +28,8 @@ const Navbar = () => {
     const viewportHeight = window.innerHeight;
 
     // Calculate positions
-    const finalScrollPosition = absoluteElementTop + viewportHeight * (isSmallScreen ? 0.5 : 1);
-    const initialScrollPosition = finalScrollPosition - viewportHeight * (isSmallScreen ? 0.8 : 1.3);
+    const finalScrollPosition = absoluteElementTop + viewportHeight *  0.5 ;
+    const initialScrollPosition = finalScrollPosition - viewportHeight *  0.8 ;
 
     // Step 1: Instantly jump to the initial position
     window.scrollTo({
@@ -75,9 +75,11 @@ const Navbar = () => {
         <div className="mx-auto px-4">
           <div className="flex items-center justify-center h-16 gap-8">
             {[
+              { id: 'services', label: 'Services' },
               { id: 'works', label: 'Works' },
               { id: 'about', label: 'About Me' },
               { id: 'contact', label: 'Contact' },
+
             ].map((item) => (
               <button
                 key={item.id}
